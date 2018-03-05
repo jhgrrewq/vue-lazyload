@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <img v-lazy="imgSrc1" alt="">
+    <div style="width: 100px; height: 800px;"></div>
+    <div v-lazy:background-image="imgSrc2" style="width: 100px;height: 100px;"></div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="../lazy.js"></script>
+  <script>
+    // 调用插件
+    Vue.use(vueLazy)
+    /**
+     * Vue.use(vueLazy, {
+     *  loading: './loading.png'
+     * })
+    */
+
+    window.vue = new Vue({
+      el: '#app',
+      data: {
+        imgSrc1: "./banner1.png",
+        imgSrc2: "./banner2.png",
+      }
+    })
+  </script>
+</body>
+</html>
