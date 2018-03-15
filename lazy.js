@@ -13,7 +13,7 @@
         Array.prototype.remove = function(item) {
           if (!this.length) return
           let index = this.indexOf(item)
-          if (item > -1) {
+          if (index > -1) {
             this.splice(index, 1)
             return this
           }
@@ -41,7 +41,6 @@
   
       // 检测图片是否进入可视区域，如果是则进行加载
       const isCanShow = item => {
-        console.log('item', item)
         let el = item.el
         let src = item.src
         let bgImage = item.bgImage
@@ -59,7 +58,6 @@
             } else {
               el.src = src
             }
-            console.log('el', el, 'src', src)
             imageCacheList.push(src)
             listenList.remove(item)
           }
